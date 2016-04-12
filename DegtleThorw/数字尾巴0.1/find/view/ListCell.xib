@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell autoresizesSubviews="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ListCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zpB-Tt-04h">
+                        <rect key="frame" x="10" y="5" width="100" height="70"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cWG-Ws-iJd">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="70"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ok5-0m-2eZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="70"/>
+                                        <animations/>
+                                    </imageView>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ok5-0m-2eZ" secondAttribute="bottom" id="NLg-E1-oBY"/>
+                                    <constraint firstItem="ok5-0m-2eZ" firstAttribute="top" secondItem="cWG-Ws-iJd" secondAttribute="top" id="QeW-QX-iRJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="ok5-0m-2eZ" secondAttribute="trailing" id="Xdj-Cb-1yb"/>
+                                    <constraint firstItem="ok5-0m-2eZ" firstAttribute="leading" secondItem="cWG-Ws-iJd" secondAttribute="leading" id="fSf-TM-821"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <animations/>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See You Again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4B-qt-mph">
+                        <rect key="frame" x="150" y="10" width="250" height="24"/>
+                        <animations/>
+                        <accessibility key="accessibilityConfiguration" identifier="listcell"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="x4B-qt-mph" secondAttribute="height" multiplier="125:12" id="zE7-cj-m2i"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="19"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李荣浩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LII-eq-TYj">
+                        <rect key="frame" x="150" y="50" width="250" height="24"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="LII-eq-TYj" secondAttribute="height" multiplier="125:12" id="kxd-Mi-Aqd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="LII-eq-TYj" firstAttribute="trailing" secondItem="x4B-qt-mph" secondAttribute="trailing" id="5JO-PS-RLJ"/>
+                    <constraint firstItem="x4B-qt-mph" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="9Mo-Ye-T5u"/>
+                    <constraint firstItem="x4B-qt-mph" firstAttribute="leading" secondItem="zpB-Tt-04h" secondAttribute="trailing" constant="40" id="F30-MN-jkr"/>
+                    <constraint firstItem="zpB-Tt-04h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="PDS-P2-fu1"/>
+                    <constraint firstItem="LII-eq-TYj" firstAttribute="top" secondItem="x4B-qt-mph" secondAttribute="bottom" constant="16" id="S5Z-pq-6mQ"/>
+                    <constraint firstItem="x4B-qt-mph" firstAttribute="leading" secondItem="zpB-Tt-04h" secondAttribute="trailing" constant="40" id="SuK-BK-nqe"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="x4B-qt-mph" secondAttribute="trailing" constant="6" id="Wp3-U5-BGm"/>
+                    <constraint firstItem="zpB-Tt-04h" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Xov-k5-RGu"/>
+                    <constraint firstItem="zpB-Tt-04h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="eMP-WD-n5h"/>
+                    <constraint firstItem="LII-eq-TYj" firstAttribute="leading" secondItem="zpB-Tt-04h" secondAttribute="trailing" constant="40" id="fg1-y0-o13"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="x4B-qt-mph" secondAttribute="trailing" constant="6" id="hBB-dP-eMD"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="LII-eq-TYj" secondAttribute="bottom" constant="-3" id="uV6-za-2Wk"/>
+                    <constraint firstItem="LII-eq-TYj" firstAttribute="top" secondItem="x4B-qt-mph" secondAttribute="bottom" constant="16" id="vPp-bN-77w"/>
+                    <constraint firstItem="x4B-qt-mph" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="yQ1-Hx-39G"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="img" destination="ok5-0m-2eZ" id="U65-HW-u58"/>
+                <outlet property="textTitle" destination="x4B-qt-mph" id="kjW-LW-ute"/>
+                <outlet property="textWriter" destination="LII-eq-TYj" id="d2K-Vu-Ehe"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

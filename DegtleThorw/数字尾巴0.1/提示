@@ -1,0 +1,105 @@
+让label自适应行高的方法
+接口有可能使用url编码
+
+搜索的时候需要使用（浏览器使用的是url编码 我们使用的是utf-8编码）-- 解决办法
+NSString *bodyText = [[NSString stringWithFormat:POSTBODYSTR] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+
+关闭cell选中的效果
+cell.selectionStyle = UITableViewCellSelectionStyleNone;
+去掉tableViewcell的默认分割线显示效果
+ tableView.separatorStyle = NO;
+
+borderColor 中需要的cgcolor的转化方式 [UIColor grayColor].CGColor
+
+LWSCommunityShowDetialPager(详情网页)//欠缺使图片适应高度的方法
+
+CGSize size = CGSizeMake(320,2000); //设置一个行高上限
+NSDictionary *attribute = @{NSFontAttributeName: nameLabel.font};
+CGSize labelsize = [nameLabel.text boundingRectWithSize:size options: NSStringDrawingTruncatesLastVisibleLine NSStringDrawingUsesLineFragmentOrigin NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
+
+isKindOfClass和isMemberOfClass 都是NSObject的比较Class的方法
+　　但两个有很大区别:
+　　isKindOfClass来确定一个对象是否是一个类的成员，或者是派生自该类的成员
+　　isMemberOfClass只能确定一个对象是否是当前类的成员
+　　例如：我们已经成NSObject派生了自己的类，isMemberOfClass不能检测任何的类都是基于NSObject类这一事实，而isKindOfClass可以。
+　　[[NSMutableData data] isKindOfClass:[NSData class]]; // YES
+[[NSMutableData data] isMemberOfClass:[NSData class]]; // NO
+
+//使iamgeview只显示图片中间位置的方法
+imageView.contentMode =  UIViewContentModeCenter；
+同时设置杜宇的部分不显示
+如果在默认情况，图片的多出来的部分还是会显示屏幕上。如果不希望超过frame的区域显示在屏幕上要设置。clipsToBounds属性。
+imageView.clipsToBounds  = YES;
+
+http://www.dgtle.com/api/dgtle_api/v1/api.php?charset=UTF8&dataform=json&swh=480x800&apikeys=DGTLECOM_APITEST1&uid=11549&idtype=tid&nodisplay=1&page=1&REQUESTCODE=31
+
+解析歌词的方法
+- (void)getListFromModel{
+NSString *ircAll = self.model.lyric;
+NSArray *arr = [ircAll componentsSeparatedByString:@"["];
+for (NSString *str in arr) {
+NSArray *irc = [str componentsSeparatedByString:@"]"];
+[self.ircList addObject:irc];
+}
+NSLog(@"%@",self.ircList);
+}
+
+开心一刻网址（没有加载直接刷新）
+http://c.m.163.com/nc/article/list/T1350383429665/0-20.html
+
+http://c.m.163.com/nc/article/list/T1350383429665/0-20.html
+
+设置首页cell的type是1；
+设置轮播图的type是2；
+
+！！！NSUserDefaults存放的对象一定是不可变的！！
+
+* tableView:editActionsForRowAtIndexPath: // 设置滑动删除时显示多个按钮
+
+* UITableViewRowAction // 通过此类创建按钮
+
+* 1. 我们在使用一些应用的时候，在滑动一些联系人的某一行的时候，会出现删除、置顶、更多等等的按钮，在iOS8之前，我们都需要自己去实现。But，到了iOS8，系统已经写好了，只需要一个代理方法和一个类就搞定了
+
+* 2. iOS8的协议多了一个方法，返回值是数组的tableView:editActionsForRowAtIndexPath:方法，我们可以在方法内部写好几个按钮，然后放到数组中返回，那些按钮的类就是UITableViewRowAction
+
+* 3. 在UITableViewRowAction类，我们可以设置按钮的样式、显示的文字、背景色、和按钮的事件（事件在Block中实现）
+
+* 4. 在代理方法中，我们可以创建多个按钮放到数组中返回，最先放入数组的按钮显示在最右侧，最后放入的显示在最左侧
+
+* 5. 注意：如果我们自己设定了一个或多个按钮，系统自带的删除按钮就消失了.
+
+
+设置tableViewcell可被编辑的方法
+//!第二步，重写方法(添加关联)
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
+[super setEditing:editing animated:animated];
+[self.tableView setEditing:editing animated:animated];
+}
+//设置是否可编辑
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+// Return NO if you do not want the specified item to be editable.
+return YES;
+}
+//设置编辑状态
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+if (editingStyle == UITableViewCellEditingStyleDelete) {
+//清空数据库中该行数据
+LWSSQLModel *model = self.models[indexPath.row];
+[self.models removeObjectAtIndex:indexPath.row];
+[LWSSQLTool deleteCollectionWithTitle:model.title];
+//更新UI
+[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+}
+
+//搜索页的主体
+http://www.dgtle.com/api/dgtle_api/v1/api.php?REQUESTCODE=29&page=1&perpage=20&swh=480x800&charset=UTF8&dataform=json&apikeys=DGTLECOM_APITEST1&platform=ios&version=2.8&inapi=yes
+
+
+//!!!!body中存放的东西
+apikeys=DGTLECOM_APITEST1&charset=UTF8&dataform=json&formhash=b7f5721a&inapi=yes&keyword=qq&platform=ios&searchsubmit=true&searchtype=portal&swh=480x800&version=2.8
+
+真的很巧的是，几天前特伦还在和同学讨论「为什么中国菜那么好吃但是却经常被人做得那么丑」这个（伪）命题，虽然食物最重要的是味道，但是卖相美一点却能提高人的食欲，就像一款 App 就算功能再强大，但是界面丑陋  ...
+
+
